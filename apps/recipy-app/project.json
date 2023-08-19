@@ -19,7 +19,9 @@
           "apps/recipy-app/src/favicon.ico",
           "apps/recipy-app/src/assets"
         ],
-        "styles": ["apps/recipy-app/src/styles.scss"],
+        "styles": ["apps/recipy-app/src/styles.scss",
+       "node_modules/bootstrap/dist/css/bootstrap.min.css"
+      ],
         "scripts": []
       },
       "configurations": {

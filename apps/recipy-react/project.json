@@ -1,0 +1,96 @@
+{
+  "name": "recipy-react",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/recipy-react/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/recipy-react",
+        "index": "apps/recipy-react/src/index.html",
+        "baseHref": "/",
+        "main": "apps/recipy-react/src/main.tsx",
+        "tsConfig": "apps/recipy-react/tsconfig.app.json",
+        "assets": [
+          "apps/recipy-react/src/favicon.ico",
+          "apps/recipy-react/src/assets"
+        ],
+        "styles": ["apps/recipy-react/src/styles.css"],
+        "scripts": [],
+        "isolatedConfig": true,
+        "webpackConfig": "apps/recipy-react/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/recipy-react/src/environments/environment.ts",
+              "with": "apps/recipy-react/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/webpack:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "recipy-react:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "recipy-react:build:development"
+        },
+        "production": {
+          "buildTarget": "recipy-react:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/recipy-react/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "recipy-react:build"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/recipy-react/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": []
+}
