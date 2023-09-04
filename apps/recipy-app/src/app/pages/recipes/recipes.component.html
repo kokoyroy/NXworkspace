@@ -1,8 +1,14 @@
 <div class="row">
-    <div class="col-md-5">
-        <org-recipes-list></org-recipes-list>
-    </div>
+  <div class="col-md-5">
+    <org-recipes-list
+      (recipySelected)="selectedRecipy = $event"></org-recipes-list>
+  </div>
+  <div class="col-md-7" *ngIf="selectedRecipy; else selectRecipy">
+    <org-recipy-details [recipy]="selectedRecipy"></org-recipy-details>
+  </div>
+  <ng-template #selectRecipy>
     <div class="col-md-7">
-        <org-recipy-details></org-recipy-details>
+      <p>Please select a Recipy!</p>
     </div>
+  </ng-template>
 </div>

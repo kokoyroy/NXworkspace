@@ -1,1 +1,30 @@
-<p>recipy-details works!</p>
+<div class="row">
+  <div class="col-xs-12">
+    <img
+      src="{{ recipy?.imagePath }}"
+      alt="{{ recipy?.description }}"
+      class="img-responsive" />
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ recipy?.name }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div orgDropdown class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle">
+        Manage Recipy <span class="carret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a href="#">To Shopping List</a></li>
+        <li><a href="#">Edit Recipy</a></li>
+        <li><a href="#">Delete Recipy</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">Ingiredients</div>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { featureType } from './components/Header/header.component';
 
 @Component({
   selector: 'org-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'recipy-app';
+  loadedFeature: featureType = 'recipy';
+
+
+  onNavigate(event:featureType) {
+    this.loadedFeature = event;
+  }
 }

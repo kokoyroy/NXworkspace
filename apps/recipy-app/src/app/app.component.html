@@ -1,8 +1,10 @@
+<org-header (featureSelected)="onNavigate($event)"></org-header>
 <div class="container">
-  <org-header></org-header>
   <div class="row">
     <div class="col-mid-12">
-      <org-recipes></org-recipes>
+      <org-recipes *ngIf="loadedFeature === 'recipy'"></org-recipes>
+      <org-shopping-list
+        *ngIf="loadedFeature === 'shopping-list'"></org-shopping-list>
     </div>
   </div>
 </div>

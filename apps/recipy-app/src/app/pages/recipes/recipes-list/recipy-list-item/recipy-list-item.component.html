@@ -1,1 +1,15 @@
-<p>recipy-list-item works!</p>
+<a href="#" class="list-group-item clearfix" *ngIf="recipy"
+(click)="onRecipySelected(recipy)"
+>
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ recipy.name }}</h4>
+    <p class="list-group-item-text">{{ recipy.description }}</p>
+  </div>
+  <span class="pull-right">
+    <img
+      src="{{ recipy.imagePath }}"
+      [alt]="recipy.name"
+      class="img-responsive"
+      style="max-height: 50px" />
+  </span>
+</a>

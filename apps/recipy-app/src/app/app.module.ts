@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { HeaderComponent } from './components/Header/header.component';
 import { FooterComponent } from './components/Footer/footer.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
@@ -12,11 +11,13 @@ import { RecipyDetailsComponent } from './pages/recipes/recipy-details/recipy-de
 import { RecipyListItemComponent } from './pages/recipes/recipes-list/recipy-list-item/recipy-list-item.component';
 import { ShoppingListComponent } from './pages/shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './pages/shopping-list/shopping-edit/shopping-edit.component';
+import { FormsModule } from '@angular/forms';
+import { BasicHighlightDirective } from './directives/basic-highlight.directive';
+import { DropdownDirective } from './directives/dropdown.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NxWelcomeComponent,
     HeaderComponent,
     FooterComponent,
     RecipesComponent,
@@ -25,9 +26,12 @@ import { ShoppingEditComponent } from './pages/shopping-list/shopping-edit/shopp
     RecipyListItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
+    BasicHighlightDirective,
+    DropdownDirective,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],
